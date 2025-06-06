@@ -25,9 +25,9 @@ export default function Header() {
 
     const navLinks = [
         { path: "/", label: "Home" },
-        { path: "/SalesTrends", label: "Sales Trends" },
-        { path: "/InventoryForecast", label: "Inventory Forecast" },
-        { path: "/MarketInsights", label: "Market Insights" }
+        { path: "/Billing", label: "Billing" },
+        { path: "/Products", label: "Products" },
+        { path: "/Product-Analytics", label: "Product Analytics" }
     ];
 
     return (

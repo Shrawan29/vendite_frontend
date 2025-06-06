@@ -28,6 +28,8 @@ import categoryRouter from "./routes/category.routes.js"
 
 import billRouter from "./routes/bill.routes.js"
 
+import productAnalytics from './routes/productAnalytics.routes.js'
+
 //route decleration
 app.use("/api/v2/users",userRouter)
 
@@ -36,5 +38,7 @@ app.use("/api/v2/products",productRouter)
 app.use("/api/v2/categories",categoryRouter)
 
 app.use("/api/v2/bills",billRouter)
+
+app.use("/api/v2/product-analytics",productAnalytics)
 
 export {app}

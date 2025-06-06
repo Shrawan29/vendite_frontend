@@ -6,6 +6,8 @@ import Layout from "./components/layout/Layout.jsx";
 import HomePage from "./pages/HomePage1.jsx";
 import BillGenerator from "./pages/Bill.jsx";
 import { AuthProvider } from "./context/authContext.jsx";
+import ProductDashboard from "./pages/Product.jsx";
+import ProductPerformanceDashboard from "./pages/ProductAnalytics.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +24,16 @@ const router = createBrowserRouter([
   {
     path: "/Billing",
     element:<BillGenerator/>
+  },
+  {
+    path: "/Products",
+    element: <ProductDashboard />
+  },
+  {
+    path: "/Product-Analytics",
+    element: <ProductPerformanceDashboard />
   }
-  
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

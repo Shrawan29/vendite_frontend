@@ -119,14 +119,19 @@ const deleteProduct = asyncHandler(async (req, res) => {
 });
 
 const checkLowStock = asyncHandler(async (req, res) => {
-    const lowStockProducts = await Product.find({ stockQuantity: { $lte: alertQuantity } })
-        .populate("category", "name description");
+    const allProducts = await Product.find().populate("category", "name description");
+
+    const lowStockProducts = allProducts.filter(
+        (product) => product.stockQuantity <= product.alertQuantity
+    );
 
     if (!lowStockProducts || lowStockProducts.length === 0) {
-        return res.status(404).json(apiResponse(404, "No low stock products found"));
+        return res.status(404).json(new apiResponse(404, "No low stock products found"));
     }
 
-    return res.status(200).json(apiResponse(200, "Low stock products fetched successfully", lowStockProducts));
+    return res
+        .status(200)
+        .json(new apiResponse(200, lowStockProducts, "Low stock products fetched successfully"));
 });
 
 const updateStock = asyncHandler(async (req, res) => {

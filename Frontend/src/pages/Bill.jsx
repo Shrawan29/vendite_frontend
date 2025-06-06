@@ -22,7 +22,8 @@ export default function BillGenerator() {
   const fetchProducts = async () => {
     try {
       setFetchingProducts(true);
-      const response = await fetch('http://localhost:8001/api/v2/products/get-all-products');
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/products/get-all-products`);
+      
       const data = await response.json();
       if (Array.isArray(data.message)) {
         setAvailableProducts(data.message);
@@ -118,7 +119,7 @@ export default function BillGenerator() {
         paymentMethod
       };
 
-      const response = await fetch('http://localhost:8001/api/v2/bills/create-bill', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/bills/create-bill`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(billData)
