@@ -27,7 +27,7 @@ export default function Header() {
         { path: "/", label: "Home" },
         { path: "/Billing", label: "Billing" },
         { path: "/Products", label: "Products" },
-        { path: "/Product-Analytics", label: "Product Analytics" }
+        { path: "/Sales-summary", label: "Product Analytics" }
     ];
 
     return (

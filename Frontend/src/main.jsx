@@ -7,7 +7,7 @@ import HomePage from "./pages/HomePage1.jsx";
 import BillGenerator from "./pages/Bill.jsx";
 import { AuthProvider } from "./context/authContext.jsx";
 import ProductDashboard from "./pages/Product.jsx";
-import ProductPerformanceDashboard from "./pages/ProductAnalytics.jsx";
+import SalesSummaryDashboard from "./pages/salesSummary.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,8 +30,8 @@ const router = createBrowserRouter([
     element: <ProductDashboard />
   },
   {
-    path: "/Product-Analytics",
-    element: <ProductPerformanceDashboard />
+    path: "/Sales-Summary",
+    element: <SalesSummaryDashboard />
   }
 
 ]);
