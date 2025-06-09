@@ -2,6 +2,12 @@ import mongoose, { Schema } from "mongoose";
 
 const productSchema = new Schema(
   {
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+      index: true
+    },
     name: {
       type: String,
       required: true,
@@ -47,7 +53,7 @@ const productSchema = new Schema(
     tax: {
       type: Number,
       default: 0, // Default tax percentage (can be set as needed)
-      required : true,
+      required: true,
     },
   },
   {
@@ -55,7 +61,7 @@ const productSchema = new Schema(
   }
 );
 
-// Utility method to check quantity alert
+// ✅ Utility method to check quantity alert
 productSchema.methods.quantityAlert = async function (alertQuantity) {
   return this.stockQuantity <= alertQuantity;
 };
